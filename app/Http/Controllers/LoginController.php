@@ -14,8 +14,6 @@ class LoginController extends Controller
 
         if ($request->isMethod('post'))
         {
-
-
             $credentials = $request->validate([
                 'email' => ['required', 'email'],
                 'password' => ['required'],

@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 */
 
+Route::match(['get','post'],'/odeme', [\App\Http\Controllers\OdemeController::class,'odeme'])->name('odeme');
 
 Route::match(['get','post'],'/', [\App\Http\Controllers\LoginController::class,'index'])->name('login');
 

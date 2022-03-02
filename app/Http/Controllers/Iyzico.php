@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ayar;
 use Illuminate\Http\Request;
 
 class Iyzico extends Controller
@@ -11,11 +12,25 @@ class Iyzico extends Controller
     protected $basketItems;
     public function __construct()
     {
+
+        $ayar=Ayar::get()->first();
+
+        $this->options = new \Iyzipay\Options();
+        $this->options->setApiKey($ayar->setApiKey);
+        $this->options->setSecretKey($ayar->setSecretKey);
+        $this->options->setBaseUrl($ayar->setBaseUrl);
+        $this->basketItems = [];
+
+
+
+        /*
         $this->options = new \Iyzipay\Options();
         $this->options->setApiKey("sandbox-bJy1xjsHAG97HEZjTPVINISuw2C3dYs6");
         $this->options->setSecretKey("sandbox-6ZLCK0HOPKXYfmRV4oHftWLJZvj1Vn2O");
         $this->options->setBaseUrl("https://sandbox-api.iyzipay.com");
         $this->basketItems = [];
+
+        */
     }
 
     public function setform(Array $params){

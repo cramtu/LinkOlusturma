@@ -19,11 +19,17 @@ Route::get('/', function () {
 
 */
 
-Route::match(['get','post'],'/odeme', [\App\Http\Controllers\OdemeController::class,'odeme'])->name('odeme');
+
+
+
 
 Route::match(['get','post'],'/', [\App\Http\Controllers\LoginController::class,'index'])->name('login');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+
+    Route::match(['get','post'],'/ayarlar', [\App\Http\Controllers\AyarlarController::class,'ayarlar'])->name('ayarlar');
+
+    Route::match(['get','post'],'/odeme', [\App\Http\Controllers\OdemeController::class,'odeme'])->name('odeme');
 
 Route::match(['get','post'],'/logout', [\App\Http\Controllers\LoginController::class,'logout'])->name('logout');
 

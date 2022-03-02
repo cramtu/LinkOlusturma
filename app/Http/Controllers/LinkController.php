@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Logo;
 use App\Models\Alici;
 use App\Models\Link;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+
 
 class LinkController extends Controller
 {
@@ -41,15 +43,23 @@ class LinkController extends Controller
             }
         }
 
+        $logo= new Logo();
+        $logo=$logo->getlogo();
 
-        return view('Linkolustur');
+        return view('Linkolustur', compact('logo'));
+
     }
 
     public function Linklistele(Request $request){
 
+        $logo= new Logo();
+        $logo=$logo->getlogo();
+
+
 
         $liste=Link::with('icerik')->get();
-        return view('LinkListe', compact('liste'));
+        return view('LinkListe', compact('liste','logo'));
+
 
 
     }

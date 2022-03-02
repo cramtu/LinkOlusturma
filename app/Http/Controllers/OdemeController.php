@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Logo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Iyzico;
+
 
 class OdemeController extends Controller
 {
@@ -66,9 +68,14 @@ class OdemeController extends Controller
             ])
             ->paymentForm();
 
+        $logo= new Logo();
+        $logo=$logo->getlogo();
+
+
         return view('odeme',[
             'paymentContent'=>$payment->getCheckoutFormContent(),
             'paymentStatus' =>$payment->getStatus(),
+            'logo'=>$logo,
         ]);
     }
 }

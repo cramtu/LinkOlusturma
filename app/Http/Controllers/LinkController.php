@@ -43,23 +43,17 @@ class LinkController extends Controller
             }
         }
 
-        $logo= new Logo();
-        $logo=$logo->getlogo();
 
-        return view('Linkolustur', compact('logo'));
+
+        return view('Linkolustur');
 
     }
 
     public function Linklistele(Request $request){
 
-        $logo= new Logo();
-        $logo=$logo->getlogo();
-
-
 
         $liste=Link::with('icerik')->get();
-        return view('LinkListe', compact('liste','logo'));
-
+        return view('LinkListe', compact('liste'));
 
 
     }

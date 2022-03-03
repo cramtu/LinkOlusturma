@@ -8052,8 +8052,7 @@ window.tinymce.Resource.add("tinymce.plugins.emoticons", {
     "char": '<img data-emoticon="true" style="width:1em;height:1em;margin:0 .05em 0 .1em;vertical-align:-.1em" draggable="false" alt="\ud83c\udde7\ud83c\uddef" src="1f1e7-1f1ef.png"/>',
     fitzpatrick_scale: false,
     category: "flags"
-  },
-  bermuda: {
+  },bermuda: {
     keywords: [ "bm", "flag", "nation", "country", "banner" ],
     "char": '<img data-emoticon="true" style="width:1em;height:1em;margin:0 .05em 0 .1em;vertical-align:-.1em" draggable="false" alt="\ud83c\udde7\ud83c\uddf2" src="1f1e7-1f1f2.png"/>',
     fitzpatrick_scale: false,

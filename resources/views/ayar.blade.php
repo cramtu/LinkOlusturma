@@ -25,6 +25,10 @@
                         </span>
                                   </div>
                               </div>
+                              <div class="form-group">
+                                  <label for="exampleInputName1">Site Adı</label>
+                                  <input type="text" class="form-control" value="{{$ayar->siteadi}}" id="siteadi" name="siteadi">
+                              </div>
 
                           </div>
                           <div class="col-md-6">

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('setApiKey');
             $table->string('setSecretKey');
             $table->string('setBaseUrl');
+            $table->string('siteadi');
             $table->timestamps();
             $table->dateTime('deleted_at');
         });

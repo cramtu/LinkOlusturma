@@ -45,9 +45,6 @@
                 </button>
             </div>
             <div>
-                <a class="navbar-brand brand-logo" href="{{route('Linkolustur')}}">
-                    <img src="images/logo/{{$logo}}" alt="logo" />
-                </a>
 
             </div>
         </div>
@@ -56,8 +53,9 @@
                 <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
                   @php
                      $time= \Carbon\Carbon::now('Turkey')->format('g:i A');
+
                   @endphp
-                    <h1 class="welcome-text">@if(str_contains($time,'PM')) İyi Günler, @else  İyi Akşamlar @endif <span class="text-black fw-bold"></span>{{ Auth::user()->name }}</h1>
+                    <h1 class="welcome-text">@if(str_contains($time,'AM')) İyi Günler, @else  İyi Akşamlar @endif <span class="text-black fw-bold"></span>{{ Auth::user()->name }}</h1>
 
                 </li>
             </ul>
@@ -83,12 +81,6 @@
                     <a class="nav-link" href="{{route('Linklistele')}}">
                         <i class="menu-icon mdi mdi-card-text-outline"></i>
                         <span class="menu-title">Ödeme Linklerini Listele</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('odeme')}}">
-                        <i class="menu-icon mdi mdi-floor-plan"></i>
-                        <span class="menu-title">Ödeme</span>
                     </a>
                 </li>
                 <li class="nav-item">

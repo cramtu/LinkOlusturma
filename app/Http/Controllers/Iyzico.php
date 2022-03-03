@@ -42,7 +42,7 @@ class Iyzico extends Controller
         $this->request->setCurrency(\Iyzipay\Model\Currency::TL);
         $this->request->setBasketId($params['basketId']);
         $this->request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
-        $this->request->setCallbackUrl("https://www.merchant.com/callback");
+        $this->request->setCallbackUrl(route('callback'));
         $this->request->setEnabledInstallments(array(2, 3, 6, 9));
         return $this;
     }
@@ -112,4 +112,16 @@ class Iyzico extends Controller
 
        return $form;
     }
+
+    public function callbackForm($token,$consersationID){
+        $request = new \Iyzipay\Request\RetrieveCheckoutFormRequest();
+        $request->setLocale(\Iyzipay\Model\Locale::TR);
+        $request->setConversationId($consersationID);
+        $request->setToken($token);
+        $checkoutForm = \Iyzipay\Model\CheckoutForm::retrieve($request, $this->options);
+        return $checkoutForm;
+    }
+
+
+
 }

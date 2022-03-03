@@ -30,6 +30,7 @@ class AyarlarController extends Controller
                 'setApiKey'=>$request->setApiKey,
                 'setSecretKey'=>$request->setSecretKey,
                 'setBaseUrl'=>$request->setBaseUrl,
+                'siteadi'=>$request->siteadi,
             ]);
 
 
@@ -38,9 +39,8 @@ class AyarlarController extends Controller
 
         }
 
-        $logo= new Logo();
-        $logo=$logo->getlogo();
 
-        return view('ayar',compact('ayar','logo'));
+
+        return view('ayar',compact('ayar'));
     }
 }

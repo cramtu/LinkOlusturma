@@ -18,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->string('odemeadi');
             $table->integer('fiyat');
-            $table->boolean('durum');
             $table->string('parabirimi');
+            $table->boolean('durum');
             $table->string('slug');
             $table->longText('aciklama');
             $table->boolean('tekkullan');

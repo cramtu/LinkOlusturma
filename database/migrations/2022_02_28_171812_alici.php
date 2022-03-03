@@ -17,7 +17,12 @@ return new class extends Migration
             $table->id();
             $table->integer('link_id');
             $table->string('aliciadi');
+            $table->string('alicisoyad');
+            $table->string('aliciemail');
+            $table->integer('alicitc');
              $table->string('alicinumara');
+            $table->string('alicisehir');
+            $table->string('aliciulke');
              $table->longText('aliciadres');
             $table->timestamps();
             $table->dateTime('deleted_at');

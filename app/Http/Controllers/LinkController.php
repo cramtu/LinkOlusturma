@@ -37,8 +37,14 @@ class LinkController extends Controller
                 Alici::create([
                     'link_id'=>$link->id,
                     'aliciadi'=>$request->aliciadi,
+                    'alicisoyad'=>$request->alicisoyad,
+                    'aliciemail'=>$request->aliciemail,
+                    'alicisehir'=>$request->alicisehir,
+                    'aliciulke'=>$request->aliciulke,
                     'alicinumara'=>$request->alicinumara,
                     'aliciadres'=>$request->aliciadres,
+                    'alicitc'=>$request->alicitc,
+
                 ]);
             }
         }

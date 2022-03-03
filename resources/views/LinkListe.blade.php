@@ -24,6 +24,7 @@
                                                                     <th>Fiyat</th>
                                                                     <th>Link Durumu</th>
                                                                     <th>Taksitli Satış</th>
+                                                                    <th>Ödeme Linkli</th>
                                                                     <th>Alıcı İletişim Bilgileri</th>
                                                                     <th>İşlem</th>
                                                                 </tr>
@@ -35,9 +36,11 @@
                                                                     <td>{{$list->fiyat}} {{$list->parabirimi}} </td>
                                                                     <td>@if($list->tekkullan==1)Tek kullanımlık @else Çoklu Kullanım @endif</td>
                                                                     <td>@if($list->tasitlisatis==1)Var @else Yok @endif</td>
+                                                                    <td>http://127.0.0.1:8000/odeme/{{$list->id}}</td>
                                                                     @if($list->aliciiletisim==0)
-                                                                        <td>Alıcı ADı:{{$list->icerik->aliciadi}}
-                                                                            Alıcı Numarası:{{$list->icerik->alicinumara}}
+                                                                        <td><b>Alıcı Adı:</b>{{$list->icerik->aliciadi}}
+                                                                            <br>
+                                                                            <b> Alıcı Numarası:</b>{{$list->icerik->alicinumara}}
                                                                         </td>
                                                                     @else
                                                                       <td>Alıcı Tarafından girilecek</td>

@@ -77,18 +77,43 @@
                                                           </label>
                                                           <div style="display:block;" id="alicibilgileri">
                                                           <div class="row">
-                                                              <div class="form-group col-md-6">
-                                                                  <label for="exampleInputName1">Alıcı Adı</label>
-                                                                  <input type="text" class="form-control" id="aliciadi" name="aliciadi">
+                                                              <div class="col-md-6">
+                                                                  <div class="form-group ">
+                                                                      <label for="exampleInputName1">Alıcı Adı</label>
+                                                                      <input type="text" class="form-control say" id="aliciadi" name="aliciadi">
+                                                                  </div>
+                                                                  <div class="form-group ">
+                                                                      <label for="exampleInputName1">Alıcı email</label>
+                                                                      <input type="email" class="form-control say" id="aliciemail" name="aliciemail">
+                                                                  </div>
+                                                                  <div class="form-group ">
+                                                                      <label for="exampleInputName1">Alıcı TC</label>
+                                                                      <input type="number" class="form-control say" id="alicitc" name="alicitc">
+                                                                  </div>
+                                                                  <div class="form-group ">
+                                                                      <label for="exampleInputName1">Alıcı Şehir</label>
+                                                                      <input type="text" class="form-control say" id="alicisehir" name="alicisehir">
+                                                                  </div>
+
                                                               </div>
-                                                              <div class="form-group col-md-6">
-                                                                  <label for="exampleInputName1">Alıcı numarası</label>
-                                                                  <input type="number" class="form-control" id="alicinumara" name="alicinumara">
+                                                              <div class="col-md-6">
+                                                                  <div class="form-group ">
+                                                                      <label for="exampleInputName1">Alıcı Soyadı</label>
+                                                                      <input type="text" class="form-control say" id="alicisoyad" name="alicisoyad">
+                                                                  </div>
+                                                                  <div class="form-group ">
+                                                                      <label for="exampleInputName1">Alıcı numarası</label>
+                                                                      <input type="number" class="form-control say" id="alicinumara" name="alicinumara">
+                                                                  </div>
+                                                                  <div class="form-group ">
+                                                                      <label for="exampleInputName1">Alıcı Ülke</label>
+                                                                      <input type="text" class="form-control say" id="aliciulke" name="aliciulke">
+                                                                  </div>
                                                               </div>
                                                           </div>
                                                           <div class="form-group">
                                                               <label for="exampleTextarea1">Alıcı Adresi</label>
-                                                              <textarea style="height: 50px!important;" class="form-control" name="aliciadres" id="aliciadres" rows="4"></textarea>
+                                                              <textarea style="height: 50px!important;" class="form-control say" name="aliciadres" id="aliciadres" rows="4"></textarea>
                                                           </div>
                                                           </div>
                                                       </div>
@@ -154,10 +179,13 @@
     function alicigiris(node){
 
        if(node){
+           var sayi=document.getElementsByClassName('say');
+
+           for (let i = 0; i < sayi.length; i++) {
+               document.getElementsByClassName('say')[i].value=""
+           }
            document.getElementById('alicibilgileri').style.display="none";
-           document.getElementById('aliciadi').value="";
-           document.getElementById('aliciadres').value="";
-           document.getElementById('alicinumara').value="";
+
        }else{
            document.getElementById('alicibilgileri').style.display="block";
 

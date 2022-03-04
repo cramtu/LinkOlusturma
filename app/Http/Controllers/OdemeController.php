@@ -18,6 +18,8 @@ class OdemeController extends Controller
 
         $liste=Link::with('icerik')->where('id',$id)->get()->first();
 
+        if($liste->durum!=3){
+
 
         if($liste->icerik==null){
 
@@ -117,6 +119,7 @@ class OdemeController extends Controller
             'ayar'=>$ayar,
         ]);
     }
+    }
 
     public function callback(Request $request){
 
@@ -147,4 +150,5 @@ class OdemeController extends Controller
             'ayar'=>$ayar,
         ]);
     }
+
 }

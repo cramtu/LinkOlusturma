@@ -41,13 +41,22 @@
                                                                             <br>
                                                                             <b> Alıcı Numarası:</b>{{$list->icerik->alicinumara}}
                                                                         </td>
+                                                                    @elseif($list->icerik!=null)
+                                                                        <td><b>Alıcı Tarafından girilmiştir</b>
+                                                                            <br>
+                                                                            <b>Alıcı Adı:</b>{{$list->icerik->aliciadi}}
+                                                                            <br>
+                                                                            <b> Alıcı Numarası:</b>{{$list->icerik->alicinumara}}
+                                                                        </td>
                                                                     @else
                                                                       <td>Alıcı Tarafından girilecek</td>
                                                                     @endif
                                                                     @if($list->durum==0)
                                                                     <td><label class="badge badge-danger">Ödeme Bekleniyor</label></td>
-                                                                    @else
+                                                                    @elseif($list->durum==1)
                                                                         <td><label class="badge badge-success">Ödeme Alınmış </label></td>
+                                                                    @elseif($list->durum==3)
+                                                                        <td><label class="badge badge-success">Tek kulanımlık Ödeme Alınmış </label></td>
                                                                     @endif
                                                                 </tr>
                                                                 @endforeach

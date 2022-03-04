@@ -137,7 +137,9 @@ class OdemeController extends Controller
             $liste=Link::where('id',$response->getbasketId())->get()->first();
 
             if($liste->tekkullan==1){
-                Link::where('id',$response->getbasketId())->delete();
+                Link::where('id',$response->getbasketId())->update([
+                    'durum'=>3,
+                ]);
             }
         }
 

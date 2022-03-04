@@ -36,26 +36,7 @@
         height: 32px;
     }
 </style>
-<div class="container-scroller">
-    <!-- partial:../../partials/_navbar.html -->
-    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
 
-        <div class="navbar-menu-wrapper d-flex align-items-top">
-            <ul class="navbar-nav">
-                <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-
-                    <h1 class="welcome-text">{{$ayar->siteadi}} sistemine <span class="text-black fw-bold"></span>Hoş geldiniz </h1>
-
-                </li>
-            </ul>
-
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
-                <span class="mdi mdi-menu"></span>
-            </button>
-        </div>
-    </nav>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
 
 
         <style>
@@ -68,42 +49,11 @@
         max-height: 200px;
     }
 </style>
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            @if(isset($paymentStatus))
-                  @if($paymentStatus=='SUCCESS')
-                      <h1 style="color: greenyellow">Ödeme Başarılı</h1>
-                  @else
-                      <h1 style="color: red">Ödeme Başarısız</h1>
-                  @endif
-              @endif
-            <div class="col-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Ödeme</h4>
+        <img class="center" src="/images/logo/{{$ayar->resim}}" alt="logo" />
 
-                        <img class="center" src="/images/logo/{{$ayar->resim}}" alt="logo" />
-
-                    <div id="iyzipay-checkout-form" class="responsive">
-
-
-                    </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-
-        <!-- partial -->
+        <div id="iyzipay-checkout-form" class="responsive">
       </div>
-      <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-  </div>
+
 
 
 <?php

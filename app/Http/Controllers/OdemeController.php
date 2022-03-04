@@ -19,11 +19,8 @@ class OdemeController extends Controller
         $liste=Link::with('icerik')->where('id',$id)->get()->first();
 
 
-
-
-
-
         if($liste->icerik==null){
+
             if($request->has('aliciadi')){
 
                 $validated = $request->validate([
@@ -71,7 +68,7 @@ class OdemeController extends Controller
             'price'=>$liste->fiyat,//urun tutari sepet tutarına eşit olmalı zorunlu
             'paidPrice'=>$liste->fiyat,//postan geçeçek nihai tutar zorunlu
             'basketId'=>$id,//sistemdeki sepet id zorunlu değil
-            //'currency'=>'Tl'//para tipi oto tl gidiyor zorunlu
+            //'currency'=>$liste->parabirimi, //para tipi oto tl gidiyor zorunlu
             //'installment'=>'1'//Taksit bilgisi, tek çekim için 1 gönderilmelidir. Geçerli değerler: 1, 2, 3, 6, 9, 12 zorunlu
         ])
             //alıcı bilgi

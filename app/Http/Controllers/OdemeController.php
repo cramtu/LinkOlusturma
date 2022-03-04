@@ -134,13 +134,14 @@ class OdemeController extends Controller
             Link::where('id',$response->getbasketId())->update([
                 'durum'=>1,
             ]);
+            $liste=Link::where('id',$response->getbasketId())->get()->first();
+
+            if($liste->tekkullan==1){
+                Link::where('id',$response->getbasketId())->delete();
+            }
         }
 
-        $liste=Link::where('id',$response->getbasketId())->get()->first();
 
-        if($liste->tekkullan==1){
-            Link::where('id',$response->getbasketId())->delete();
-        }
 
         return view('odeme',[
             'paymentStatus' =>$response->getPaymentStatus(),

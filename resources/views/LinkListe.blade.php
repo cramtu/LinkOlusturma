@@ -10,7 +10,6 @@
 
                                 <form  method="post"  class="forms-sample">
                                     @csrf
-                                    <div class="main-panel">
                                         <div class="content-wrapper">
 
                                             <div class="col-lg-12 grid-margin stretch-card">
@@ -61,7 +60,7 @@
 
                                         </div>
 
-                                    </div>
+
 
                                 </form>
                             </div>

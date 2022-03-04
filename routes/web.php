@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 
 
+//Route::match(['get','post'],'/bilgial/{id}', [\App\Http\Controllers\OdemeController::class,'bilgial'])->name('bilgial');
 
 Route::match(['get','post'],'/', [\App\Http\Controllers\LoginController::class,'index'])->name('login');
 

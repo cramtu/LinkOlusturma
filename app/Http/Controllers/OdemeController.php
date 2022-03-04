@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Logo;
+use App\Models\Alici;
 use App\Models\Ayar;
 use App\Models\Link;
 use Illuminate\Http\Request;
@@ -18,6 +19,50 @@ class OdemeController extends Controller
         $liste=Link::with('icerik')->where('id',$id)->get()->first();
 
 
+
+
+
+
+        if($liste->icerik==null){
+            if($request->has('aliciadi')){
+
+                $validated = $request->validate([
+                    'aliciadi' => 'required',
+                    'aliciemail' => 'required',
+                    'alicitc' => 'required',
+                    'alicisehir' => 'required',
+                    'alicisoyad' => 'required',
+                    'alicinumara' => 'required',
+                    'aliciulke' => 'required',
+                    'aliciadres' => 'required',
+                ]);
+                Alici::create([
+                    'link_id'=>$id,
+                    'aliciadi'=>$request->aliciadi,
+                    'alicisoyad'=>$request->alicisoyad,
+                    'aliciemail'=>$request->aliciemail,
+                    'alicisehir'=>$request->alicisehir,
+                    'aliciulke'=>$request->aliciulke,
+                    'alicinumara'=>$request->alicinumara,
+                    'aliciadres'=>$request->aliciadres,
+                    'alicitc'=>$request->alicitc,
+
+                ]);
+
+                $liste=Link::with('icerik')->where('id',$id)->get()->first();
+
+
+            }else{
+            $ayar=Ayar::get()->first();
+            return view('bilgial',[
+                'liste'=>$liste,
+                'ayar'=>$ayar,
+            ]);
+            }
+
+        }
+
+        //dd($liste);
         $iyzico= new Iyzico();
 
         $payment=$iyzico->
@@ -89,6 +134,12 @@ class OdemeController extends Controller
             Link::where('id',$response->getbasketId())->update([
                 'durum'=>1,
             ]);
+        }
+
+        $liste=Link::where('id',$response->getbasketId())->get()->first();
+
+        if($liste->tekkullan==1){
+            Link::where('id',$response->getbasketId())->delete();
         }
 
         return view('odeme',[

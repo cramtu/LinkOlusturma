@@ -1,35 +1,43 @@
-@include('header')
 
 
-<div class="main-panel">
-    <div class="content-wrapper">
-        <div class="row">
 
-            <div class="col-12 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        {{dd($paymentStatus)}}
-                        @if($paymentStatus=='SUCCESS')
-                        <h4 class="card-title">Ödeme baraşılı</h4>
-                        @else
-                            <h4 class="card-title">Ödeme baraşırısız</h4>
-                            @endif
-                        <div id="iyzipay-checkout-form" class="responsive">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- content-wrapper ends -->
-    <!-- partial:../../partials/_footer.html -->
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- partial -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin2 </title>
+
+
+
+</head>
+
+<body>
+
+<style>
+
+    .center {
+        margin: auto;
+        width: 60%;
+
+        padding: 10px;
+    }
+
+</style>
+
+<div class="center">
+    @if($paymentStatus=='SUCCESS')
+        <h1 style="color: #73AD21" class="center">Ödeme Başarılı</h1>
+    @else
+        <h1 style="color: red;" class="card-title">Ödeme baraşırısız</h1>
+    @endif
+
 </div>
-<!-- main-panel ends -->
-</div>
-<!-- page-body-wrapper ends -->
-</div>
+
+
+
 
 <!-- container-scroller -->
 <!-- plugins:js -->

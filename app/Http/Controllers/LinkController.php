@@ -48,19 +48,13 @@ class LinkController extends Controller
                 ]);
             }
         }
-
-
-
         return view('Linkolustur');
 
     }
-
     public function Linklistele(Request $request){
-
 
         $liste=Link::with('icerik')->get();
         return view('LinkListe', compact('liste'));
-
 
     }
 }

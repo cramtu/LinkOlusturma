@@ -160,7 +160,8 @@ class OdemeController extends Controller
                 ]);
             }
         }
-        return view('odeme',[
+
+        return view('callback',[
             'paymentStatus' =>$response->getPaymentStatus(),
             'ayar'=>$ayar,
         ]);

@@ -87,43 +87,15 @@
                                 <form id="form"  method="post"  class="forms-sample">
                                     <div style="display:block;" id="alicibilgileri">
                                         <div class="row">
-                                            <div class="col-md-6">
                                                 <div class="form-group ">
-                                                    <label for="exampleInputName1">AD</label>
-                                                    <input type="text" class="form-control say" id="aliciadi" name="aliciadi">
+                                                    <label>Ürün Fiyatını {{$liste->parabirimi}} Olarak Girin</label>
+                                                    <div class="input-group">
+                                                        <input type="number" id="fiyat" name="fiyat" class="form-control" >
+                                                        <div class="input-group-append">
+                                                            <span id="parabirimi" class="input-group-text">TL</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group ">
-                                                    <label for="exampleInputName1">E-MAİL</label>
-                                                    <input type="email" class="form-control say" id="aliciemail" name="aliciemail">
-                                                </div>
-                                                <div class="form-group ">
-                                                    <label for="exampleInputName1">TC</label>
-                                                    <input type="number" class="form-control say" id="alicitc" name="alicitc">
-                                                </div>
-                                                <div class="form-group ">
-                                                    <label for="exampleInputName1">ŞEHİR</label>
-                                                    <input type="text" class="form-control say" id="alicisehir" name="alicisehir">
-                                                </div>
-
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group ">
-                                                    <label for="exampleInputName1">SOYAD</label>
-                                                    <input type="text" class="form-control say" id="alicisoyad" name="alicisoyad">
-                                                </div>
-                                                <div class="form-group ">
-                                                    <label for="exampleInputName1">TELEFON NUMARASI</label>
-                                                    <input type="number" class="form-control say" id="alicinumara" name="alicinumara">
-                                                </div>
-                                                <div class="form-group ">
-                                                    <label for="exampleInputName1">ÜLKE</label>
-                                                    <input type="text" class="form-control say" id="aliciulke" name="aliciulke">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleTextarea1">ADRES</label>
-                                            <textarea style="height: 50px!important;" class="form-control say" name="aliciadres" id="aliciadres" rows="4"></textarea>
                                         </div>
                                     </div>
 
@@ -187,42 +159,13 @@ if(isset($paymentContent))
 
 
 
-
     function yolla(){
-
-
-            if(document.getElementById('aliciadi').value==''){
-                alert("Alıcı Adı Alanı Boş Bırakılamaz");
-                return false;
-            }if(document.getElementById('alicisoyad').value==''){
-                alert("Alıcı Soyad Alanı Boş Bırakılamaz");
-                return false;
-            }if(document.getElementById('aliciemail').value==''){
-                alert("Alıcı Email Alanı Boş Bırakılamaz");
-                return false;
-            }if(document.getElementById('alicinumara').value==''){
-                alert("Alıcı Numara Alanı Boş Bırakılamaz");
-                return false;
-            }if(document.getElementById('alicitc').value==''){
-                alert("Alıcı TC Alanı Boş Bırakılamaz");
-                return false;
-            }if(document.getElementById('aliciulke').value==''){
-                alert("Alıcı Ülke Alanı Boş Bırakılamaz");
-                return false;
-            }if(document.getElementById('alicisehir').value==''){
-                alert("Alıcı Şehir Alanı Boş Bırakılamaz");
-                return false;
-            }if($('#aliciadres').val()=='')
-            {
-                alert("Alıcı Adres Alanı Boş Bırakılamaz");
-                return false;
-
-            }
-
+        if( document.getElementById('fiyat').value==''){
+            alert("Ödeme Adı Boş Bırakılamaz");
+            return false;
+        }
         document.getElementById('form').submit();
-
     }
-
 
 
 </script>

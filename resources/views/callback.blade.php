@@ -8,16 +8,13 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
+                        {{dd($paymentStatus)}}
                         @if($paymentStatus=='SUCCESS')
                         <h4 class="card-title">Ödeme baraşılı</h4>
                         @else
                             <h4 class="card-title">Ödeme baraşırısız</h4>
                             @endif
-
-
                         <div id="iyzipay-checkout-form" class="responsive">
-
-
                         </div>
                     </div>
                 </div>

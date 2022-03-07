@@ -30,7 +30,11 @@
                                                                 @foreach($liste as $list)
                                                                 <tr>
                                                                     <td>{{$list->odemeadi}}</td>
+                                                                    @if($list->fiyat==null)
+                                                                        <td>{{$list->parabirimi}} Olarak Alıcı Tarafıdan Girilecek </td>
+                                                                    @else
                                                                     <td>{{$list->fiyat}} {{$list->parabirimi}} </td>
+                                                                    @endif
                                                                     <td>@if($list->tekkullan==1)Tek kullanımlık @else Çoklu Kullanım @endif</td>
                                                                     <td>@if($list->tasitlisatis==1)Var @else Yok @endif</td>
                                                                     <td>http://127.0.0.1:8000/odeme/{{$list->id}}</td>

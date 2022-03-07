@@ -9,14 +9,13 @@
                 <div class="card-body">
                   <h4 class="card-title">Ödeme Linki Detayları</h4>
 
-                  <form  method="post"  class="forms-sample">
-
+                  <form id="form"  method="post"  class="forms-sample">
                       @csrf
                       <div class="row">
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label for="exampleInputName1">Ödeme Adı</label>
-                                  <input type="text" class="form-control" id="exampleInputName1" name="odemeadi">
+                                  <input type="text" class="form-control" id="odemeadi" name="odemeadi">
                               </div>
                               <div class="form-group">
 
@@ -44,7 +43,7 @@
                               </div>
                               <div class="form-group">
                                   <label for="exampleTextarea1">Açıklama</label>
-                                  <textarea style="height: 150px!important;" class="form-control" name="aciklama" id="exampleTextarea1" rows="10"></textarea>
+                                  <textarea style="height: 150px!important;" class="form-control" name="aciklama" id="aciklama" rows="10"></textarea>
                               </div>
                           </div>
                           <div class="col-md-6 grid-margin stretch-card">
@@ -72,7 +71,7 @@
                                                   <div class="form-group">
                                                       <div class="form-check form-check-warning">
                                                           <label class="form-check-label">
-                                                              <input onclick="alicigiris(this.checked)" type="checkbox" name="aliciiletisim" class="form-check-input">
+                                                              <input onclick="alicigiris(this.checked)" type="checkbox" id="aliciiletisim" name="aliciiletisim" class="form-check-input">
                                                               Alıcıdan iletişim ve adres bilgilerini talep et
                                                           </label>
                                                           <div style="display:block;" id="alicibilgileri">
@@ -124,7 +123,7 @@
                               </div>
                           </div>
                       </div>
-                    <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                    <button type="button" onclick="yolla()" class="btn btn-primary me-2">Kaydet</button>
                     <button class="btn btn-light">Vazgeç</button>
                   </form>
                 </div>
@@ -165,6 +164,50 @@
 </body>
 
 <script>
+    function yolla(){
+
+       // console.log(document.getElementById('odemeadi'));
+        if( document.getElementById('odemeadi').value==''){
+            alert("Ödeme Adı Boş Bırakılamaz");
+            return false;
+        } if($('#aciklama').val()==''){
+            alert("Acıklama Alanı Boş Bırakılamaz");
+            return false;
+        }
+        if(!document.getElementById('aliciiletisim').checked){
+            if(document.getElementById('aliciadi').value==''){
+                alert("Alıcı Adı Alanı Boş Bırakılamaz");
+                return false;
+            }if(document.getElementById('alicisoyad').value==''){
+                alert("Alıcı Soyad Alanı Boş Bırakılamaz");
+                return false;
+            }if(document.getElementById('aliciemail').value==''){
+                alert("Alıcı Email Alanı Boş Bırakılamaz");
+                return false;
+            }if(document.getElementById('alicinumara').value==''){
+                alert("Alıcı Numara Alanı Boş Bırakılamaz");
+                return false;
+            }if(document.getElementById('alicitc').value==''){
+                alert("Alıcı TC Alanı Boş Bırakılamaz");
+                return false;
+            }if(document.getElementById('aliciulke').value==''){
+                alert("Alıcı Ülke Alanı Boş Bırakılamaz");
+                return false;
+            }if(document.getElementById('alicisehir').value==''){
+                alert("Alıcı Şehir Alanı Boş Bırakılamaz");
+                return false;
+            }if($('#aliciadres').val()=='')
+            {
+                alert("Alıcı Adres Alanı Boş Bırakılamaz");
+                return false;
+
+            }
+        }
+
+
+        document.getElementById('form').submit();
+
+    }
     document.getElementById("price").addEventListener("keydown", function(event) {
         if (event.which === 69) {
             event.preventDefault();

@@ -16,15 +16,15 @@ class OdemeController extends Controller
 
     public function odeme($id,Request $request){
 
+
+
         $liste=Link::with('icerik')->where('id',$id)->get()->first();
 
         if($liste->durum!=3){
 
-
         if($liste->icerik==null){
 
             if($request->has('aliciadi')){
-
                 $validated = $request->validate([
                     'aliciadi' => 'required',
                     'aliciemail' => 'required',
@@ -61,7 +61,25 @@ class OdemeController extends Controller
 
         }
 
-        //dd($liste);
+
+        if($liste->fiyat==null){
+
+            if($request->has('fiyat')){
+             $data=Link::where('id',$id)->update([
+                 'fiyat'=>intval($request->fiyat),
+             ]);
+                $liste=Link::with('icerik')->where('id',$id)->get()->first();
+            }else{
+                $ayar=Ayar::get()->first();
+                return view('paraal',[
+                    'liste'=>$liste,
+                    'ayar'=>$ayar,
+                ]);
+            }
+
+        }
+
+       // dd($liste);
         $iyzico= new Iyzico();
 
         $payment=$iyzico->
@@ -142,9 +160,6 @@ class OdemeController extends Controller
                 ]);
             }
         }
-
-
-
         return view('odeme',[
             'paymentStatus' =>$response->getPaymentStatus(),
             'ayar'=>$ayar,

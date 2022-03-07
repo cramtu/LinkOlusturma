@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('link', function (Blueprint $table) {
             $table->id();
             $table->string('odemeadi');
-            $table->integer('fiyat');
+            $table->integer('fiyat')->nullable();
             $table->string('parabirimi');
             $table->boolean('durum');
             $table->string('slug');

@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin2 </title>
+    <title>Ödeme Bilgileri </title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('vendors/feather/feather.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
@@ -21,7 +21,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('css/vertical-layout-light/style.css')}}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="../../images/favicon.png" />
+
 </head>
 
 <body>
@@ -90,40 +90,66 @@
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label for="exampleInputName1">AD</label>
-                                                    <input type="text" class="form-control say" id="aliciadi" name="aliciadi">
+                                                    <input @if(isset($liste->icerik)) value="{{$liste->icerik->aliciadi}}"
+                                                           @elseif(session()->has('aliciadi')) value="{{session()->get('aliciadi')}}"
+                                                           @endif type="text" class="form-control say" id="aliciadi" name="aliciadi">
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputName1">E-MAİL</label>
-                                                    <input type="email" class="form-control say" id="aliciemail" name="aliciemail">
+                                                    <input @if(isset($liste->icerik)) value="{{$liste->icerik->aliciemail}}"
+                                                           @elseif(session()->has('aliciemail')) value="{{session()->get('aliciemail')}}"
+                                                           @endif  type="email" class="form-control say" id="aliciemail" name="aliciemail">
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputName1">TC</label>
-                                                    <input type="number" class="form-control say" id="alicitc" name="alicitc">
+                                                    <input @if(isset($liste->icerik)) value="{{$liste->icerik->alicitc}}"
+                                                           @elseif(session()->has('alicitc')) value="{{session()->get('alicitc')}}"
+                                                           @endif  type="number" class="form-control say" id="alicitc" name="alicitc">
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputName1">ŞEHİR</label>
-                                                    <input type="text" class="form-control say" id="alicisehir" name="alicisehir">
+                                                    <input @if(isset($liste->icerik)) value="{{$liste->icerik->alicisehir}}"
+                                                           @elseif(session()->has('alicisehir')) value="{{session()->get('alicisehir')}}"
+                                                           @endif  type="text" class="form-control say" id="alicisehir" name="alicisehir">
                                                 </div>
-
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group ">
                                                     <label for="exampleInputName1">SOYAD</label>
-                                                    <input type="text" class="form-control say" id="alicisoyad" name="alicisoyad">
+                                                    <input @if(isset($liste->icerik)) value="{{$liste->icerik->alicisoyad}}"
+                                                           @elseif(session()->has('alicisoyad')) value="{{session()->get('alicisoyad')}}"
+                                                           @endif  type="text" class="form-control say" id="alicisoyad" name="alicisoyad">
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputName1">TELEFON NUMARASI</label>
-                                                    <input type="number" class="form-control say" id="alicinumara" name="alicinumara">
+                                                    <input @if(isset($liste->icerik)) value="{{$liste->icerik->alicinumara}}"
+                                                           @elseif(session()->has('alicinumara')) value="{{session()->get('alicinumara')}}"
+                                                           @endif  type="number" class="form-control say" id="alicinumara" name="alicinumara">
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputName1">ÜLKE</label>
-                                                    <input type="text" class="form-control say" id="aliciulke" name="aliciulke">
+                                                    <input value="Türkiye" readonly type="text" class="form-control say" id="aliciulke" name="aliciulke">
                                                 </div>
+
+
+                                                <div class="form-group ">
+                                                    <label>Ödenecek Para Miktarı</label>
+                                                    <div class="input-group">
+                                                        <input type="number"  @if(isset($liste->fiyat)) value="{{$liste->fiyat}}" readonly
+                                                              @elseif(session()->has('fiyat')) value="{{session()->get('fiyat')}}"   @endif
+                                                               id="fiyat" name="fiyat" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                                        <div class="input-group-append">
+                                                            <span style="color: black!important;" id="parabirimi" class="input-group-text">{{$liste->parabirimi}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleTextarea1">ADRES</label>
-                                            <textarea style="height: 50px!important;" class="form-control say" name="aliciadres" id="aliciadres" rows="4"></textarea>
+                                            <textarea style="height: 50px!important;" class="form-control say" name="aliciadres" id="aliciadres" rows="4">@if(isset($liste->icerik)){{$liste->icerik->aliciadres}}@elseif(session()->has('aliciadres')){{session()->get('aliciadres')}}@endif</textarea>
                                         </div>
                                     </div>
 
@@ -186,8 +212,6 @@ if(isset($paymentContent))
 <script>
 
 
-
-
     function yolla(){
 
 
@@ -212,6 +236,9 @@ if(isset($paymentContent))
             }if(document.getElementById('alicisehir').value==''){
                 alert("Alıcı Şehir Alanı Boş Bırakılamaz");
                 return false;
+            }if(document.getElementById('fiyat').value==''){
+            alert("Ödenecek Para MiktarıAlanı Boş Bırakılamaz");
+            return false;
             }if($('#aliciadres').val()=='')
             {
                 alert("Alıcı Adres Alanı Boş Bırakılamaz");

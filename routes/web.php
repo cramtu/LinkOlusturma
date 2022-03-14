@@ -32,9 +32,12 @@ Route::match(['get','post'],'/odeme/{id}', [\App\Http\Controllers\OdemeControlle
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::match(['get','post'],'/ayarlar', [\App\Http\Controllers\AyarlarController::class,'ayarlar'])->name('ayarlar');
+
 Route::match(['get','post'],'/logout', [\App\Http\Controllers\LoginController::class,'logout'])->name('logout');
 
 Route::match(['get','post'],'/Linkolustur', [\App\Http\Controllers\LinkController::class,'Linkolustur'])->name('Linkolustur');
+
+Route::match(['get','post'],'/Odemeler', [\App\Http\Controllers\LinkController::class,'Odemeler'])->name('Odemeler');
 
 Route::match(['get','post'],'/Linklistele', [\App\Http\Controllers\LinkController::class,'Linklistele'])->name('Linklistele');
 

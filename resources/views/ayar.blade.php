@@ -1,5 +1,11 @@
-@include('header')
+@extends('header')
 
+@section('title','Ayarlar')
+
+<div class="container-fluid page-body-wrapper">
+
+@include('eklenti.navbar')
+<!-- partial -->
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">

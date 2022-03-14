@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin2 </title>
+    <title>-@yield('title')-</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('vendors/feather/feather.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
@@ -20,6 +20,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('css/vertical-layout-light/style.css')}}">
     <!-- endinject -->
+
     <link rel="shortcut icon" href="../../images/favicon.png" />
 </head>
 
@@ -66,31 +67,4 @@
         </div>
     </nav>
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
 
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('Linkolustur')}}">
-                        <i class="mdi mdi-grid-large menu-icon"></i>
-                        <span class="menu-title">Ödeme Linki Oluştur</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('Linklistele')}}">
-                        <i class="menu-icon mdi mdi-card-text-outline"></i>
-                        <span class="menu-title">Ödeme Linklerini Listele</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('ayarlar')}}">
-                        <i class="menu-icon mdi mdi-floor-plan"></i>
-                        <span class="menu-title">Ayarlar</span>
-                    </a>
-                </li>
-
-
-            </ul>
-        </nav>
-        <!-- partial -->

@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Logo;
 use App\Models\Alici;
+use App\Models\AlinanOdemeler;
+use App\Models\Ayar;
 use App\Models\Link;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 
 class LinkController extends Controller
 {
     public function Linkolustur(Request $request){
 
-
         if ($request->isMethod('post'))
         {
-            $slug = Str::slug($request->odemeadi." ".rand(0,99999999)." ".$request->fiyat."-".$request->parabirimi, '-');
+
+            $slug = time().rand(0,999999)+rand(0,999);
 
             $link=Link::create([
                 'odemeadi'=>$request->odemeadi,
@@ -56,5 +60,14 @@ class LinkController extends Controller
         $liste=Link::with('icerik')->get();
         return view('LinkListe', compact('liste'));
 
+    }
+
+    public function Odemeler(Request $request)
+    {
+        $litsq=AlinanOdemeler::with('icerik');
+
+        $liste=$litsq->paginate(30);
+
+        return view('Odemeler', compact('liste'));
     }
 }

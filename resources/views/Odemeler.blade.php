@@ -25,49 +25,38 @@
                                                                 <tr>
                                                                     <th>Ödeme Adı</th>
                                                                     <th>Fiyat</th>
-                                                                    <th>Link Durumu</th>
-                                                                    <th>Taksitli Satış</th>
-                                                                    <th>Ödeme Linkli</th>
-                                                                    <th>Alıcı İletişim Bilgileri</th>
-                                                                    <th>İşlem</th>
+                                                                    <th>Ödeme Zamanı</th>
+                                                                    <th>Ödeyen ID</th>
+                                                                    <th>Ödeyen Bilgileri</th>
+                                                                    <th>Alıcı Adresi</th>
+
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                 @foreach($liste as $list)
+
                                                                 <tr>
-                                                                    <td>{{$list->odemeadi}}</td>
-                                                                    @if($list->fiyat==null)
-                                                                        <td>{{$list->parabirimi}} Olarak Alıcı Tarafıdan Girilecek </td>
-                                                                    @else
-                                                                    <td>{{$list->fiyat}} {{$list->parabirimi}} </td>
-                                                                    @endif
-                                                                    <td>@if($list->tekkullan==1)Tek kullanımlık @else Çoklu Kullanım @endif</td>
-                                                                    <td>@if($list->tasitlisatis==1)Var @else Yok @endif</td>
+                                                                    <td>{{$list->icerik->odemeadi}}</td>
 
-                                                                    <td>http://127.0.0.1:8000/odeme/{{$list->slug}}</td>
+                                                                    <td>{{$list->para}} {{$list->icerik->parabirimi}} </td>
+                                                                    <td>{{$list->created_at}}</td>
+                                                                    <td>{{$list->alici_id}}</td>
 
-                                                                    @if($list->aliciiletisim==0)
-                                                                        <td><b>Alıcı Adı:</b>{{$list->icerik->aliciadi}}
-                                                                            <br>
-                                                                            <b> Alıcı Numarası:</b>{{$list->icerik->alicinumara}}
-                                                                        </td>
-                                                                    @elseif($list->icerik!=null)
-                                                                        <td><b>Alıcı Tarafından girilmiştir</b>
-                                                                            <br>
-                                                                            <b>Alıcı Adı:</b>{{$list->icerik->aliciadi}}
-                                                                            <br>
-                                                                            <b> Alıcı Numarası:</b>{{$list->icerik->alicinumara}}
-                                                                        </td>
-                                                                    @else
-                                                                      <td>Alıcı Tarafından girilecek</td>
-                                                                    @endif
-                                                                    @if($list->durum==0)
-                                                                    <td><label class="badge badge-danger">Ödeme Bekleniyor</label></td>
-                                                                    @elseif($list->durum==1)
-                                                                        <td><label class="badge badge-success">Ödeme Alınmış </label></td>
-                                                                    @elseif($list->durum==3)
-                                                                        <td><label class="badge badge-success">Tek kulanımlık Ödeme Alınmış </label></td>
-                                                                    @endif
+
+                                                                    <td><b>Alıcı Adı Soyadı:</b>{{$list->aliciadi}} {{$list->alicisoyad}}
+                                                                        <br>
+                                                                        <b> Alıcı Numarası:</b>{{$list->alicinumara}}
+                                                                        <br>
+                                                                        <b> Alıcı Email:</b>{{$list->aliciemail}}
+                                                                        <br>
+                                                                        <b> Alıcı Email:</b>{{$list->alicitc}}
+                                                                    </td>
+                                                                    <td>
+                                                                       {{$list->alicisehir}} <br>
+                                                                     {{$list->aliciulke}}<br>
+                                                                    {{$list->aliciadres}}
+                                                                    </td>
+
                                                                 </tr>
                                                                 @endforeach
                                                                 </tbody>

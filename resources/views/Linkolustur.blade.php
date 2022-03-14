@@ -1,4 +1,10 @@
-@include('header')
+@extends('header')
+
+@section('title','Link Oluştur')
+
+<div class="container-fluid page-body-wrapper">
+
+@include('eklenti.navbar')
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
@@ -30,7 +36,7 @@
                                           </div>
                                       </div>
                                       <div class="form-group col-md-6">
-                                          <label>Para Birimi</label>
+                                          <label>Para Birimi</label><br>
                                           <select onchange="Para(this.value)" name="parabirimi" class="js-example-basic-single w-100">
                                               <option selected value="TL">TL</option>
                                               <option value="USD">USD</option>

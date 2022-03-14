@@ -6,12 +6,12 @@ use App\Models\Ayar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Logo;
 
+
 class AyarlarController extends Controller
 {
     public function ayarlar(Request $request){
 
         $ayar=Ayar::get()->first();
-
 
         if ($request->isMethod('post'))
         {
@@ -33,13 +33,9 @@ class AyarlarController extends Controller
                 'siteadi'=>$request->siteadi,
             ]);
 
-
-
             $ayar=Ayar::get()->first();
 
         }
-
-
 
         return view('ayar',compact('ayar'));
     }
